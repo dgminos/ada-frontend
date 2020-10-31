@@ -342,9 +342,6 @@ console.log(obtenerNota(7.5));
 // 16) Crear una función jugarPiedraPapelTijera que tome como argumentos dos strings a y b que representen una jugada (piedra, papel, tijera) y 
 //dependiendo el devuelva un string con un mensaje avisando qué jugada ganó (o si hubo empate)
 
-
-
-
 const jugarPiedraPapelTijera = (a, b) => {
 
     const piedra = 'piedra';
@@ -477,6 +474,7 @@ const tamagochi = (accion) => {
 }
 
 console.log(tamagochi("dormir"));
+
 
 
 
