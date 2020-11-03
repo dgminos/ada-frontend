@@ -102,6 +102,8 @@ let perros = '';
 
 const separar = (string) => {
     let primerEmoji = string[0];
+
+
     for (let emoji of string) {
         if (emoji === primerEmoji) {
             perros += emoji
@@ -110,7 +112,7 @@ const separar = (string) => {
             gatos += emoji
         }
     }
-    return perros + gatos;
+    return perros + ' - ' + gatos;
 }
 
 //console.log(perrosYGatos);
@@ -138,18 +140,37 @@ const gano = (tragaMonedas) => {
 // 7) Crear una función estanJuntos que tome como argumento un array de strings personajes, y devuelva true si Sam se encuentra al lado de Frodo,
 // ya sea antes o después, o false sino. Ejemplo:
 
-const personajes = ['Sam', 'Frodo', 'Legolas', 'Aragorn', 'Orco'];
-let personaje = '';
 
 const estanJuntos = (personajes) => {
-    personajes.forEach(personaje => {
-        if (personaje.indexOf('Sam') === personaje.indexOf('Frodo') + 1 || personaje.indexOf('Sam') === personaje.indexOf('Frodo') - 1) {
-            return true
+    const frodo = personajes.indexOf('Frodo');//1 1 2 0
+    const sam = personajes.indexOf('Sam');//0 -1 0 1
+    //if (frodo === -1 || sam === -1) {
+    //return false;
+    //}
+
+    if (frodo === (sam + 1) || frodo === (sam - 1)) {
+        return true;
+    }
+    return false;
+};
+
+//RESOLUCIÓN ALTERNATIVA CON FOR
+/*const estanJuntos = (personajes) => {
+    const frodo = personajes.indexOf('Frodo');//1 1 2 0
+    const sam = personajes.indexOf('Sam');
+
+    for (i = 0; i < personajes.length; i++) {
+        if (frodo === -1 || sam === -1) {
+            return false;
+        }
+        else if (frodo === (sam + 1) || frodo === (sam - 1)) {
+            return true;
         }
         return false;
-    })
-};
-console.log(personajes);
+    }
+}
+*/
+//console.log(personajes);
 console.log(estanJuntos(['Sam', 'Frodo', 'Legolas'])); //true
-console.log(estanJuntos(['Aragorn', 'Frodo', 'Frodo'])); //true
-console.log(estanJuntos(['Sam', 'Orco', 'Frodo'])); //true
+console.log(estanJuntos(['Aragorn', 'Frodo', 'Frodo'])); //false
+console.log(estanJuntos(['Sam', 'Orco', 'Frodo'])); //false

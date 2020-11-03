@@ -369,7 +369,6 @@ const jugarPiedraPapelTijera = (a, b) => {
     else if (a == tijera && b == piedra) {
         return '¡Ganó piedra!';
     }
-
 }
 
 console.log(jugarPiedraPapelTijera('tijera', 'piedra'));  // ¡Ganó piedra!
@@ -416,6 +415,9 @@ Cuando el usuario selecciona una, debe mostrar el valor final de las variables.
 const obtenerrandom = () => {
     return Math.floor(Math.random() * 10);
 }
+//Math.random() devuelve valor de 0 a 1. Ej: 0.1 0.86 0.25
+//Math.floor() devuelve el valor redondeado hacia abajo. 8.6-> 8
+
 //console.log(obtenerrandom());
 
 let salud = obtenerrandom()
@@ -473,7 +475,7 @@ const tamagochi = (accion) => {
 
 }
 
-console.log(tamagochi("dormir"));
+console.log(tamagochi("alimentar"));
 
 
 

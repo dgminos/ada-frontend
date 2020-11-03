@@ -10,8 +10,8 @@ const multiplicar = (multiplicador, numeros) => {
     return resultado;
 };
 
-console.log(multiplicar(2, [5, 7, 15, 22, 40])); // [10, 14, 30, 44, 80]
-console.log(multiplicar(10, [2, 5, 77])); // [20, 50, 770]
+//console.log(multiplicar(2, [5, 7, 15, 22, 40])); // [10, 14, 30, 44, 80]
+//console.log(multiplicar(10, [2, 5, 77])); // [20, 50, 770]
 
 
 // 2) Crear una función filtrarPorLongitud que tome como argumentos un número longitud y un array de strings palabras y que devuelva un array 
@@ -32,10 +32,10 @@ const filtrarPorLongitud = (longitud, arrayPalabras) => {
 
 
 // 3) Crear una función recortar que tome como argumentos un número cantidadLetras y un array de strings palabras y devuelva un array 
-//con las mismas palabras pero recortadas. Las palabras se recortan dejando cantidadLetras letras al iniciando, y recortando las demás. 
+//con las mismas palabras pero recortadas. Las palabras se recortan dejando cantidadLetras letras al iniciar, y recortando las demás. 
 //Por ejemplo, elefante recortada a 4 letras queda elef.
 
-const recortar = (cantidadLetras, arrayDeStringsPalabras) => {
+/*const recortar = (cantidadLetras, arrayDeStringsPalabras) => {
     palabrasRecortadas = [];
     for (i = 0; i < arrayDeStringsPalabras.length; i++) {
         let stringPalabra = arrayDeStringsPalabras[i];
@@ -47,10 +47,23 @@ const recortar = (cantidadLetras, arrayDeStringsPalabras) => {
         palabrasRecortadas.push(nuevaPalabra);
     }
     return palabrasRecortadas;
+}*/
+
+//RESOLUCIÓN CON SLICE
+
+const recortar = (cantidadLetras, arrayDeStringsPalabras) => {
+    palabrasRecortadas = [];
+    for (i = 0; i < arrayDeStringsPalabras.length; i++) {
+        let stringPalabra = arrayDeStringsPalabras[i];
+        nuevaPalabra = stringPalabra.slice(0, cantidadLetras);
+        palabrasRecortadas.push(nuevaPalabra);
+    }
+    return palabrasRecortadas;
 }
 
-console.log(recortar(4, ["elefante", "dinosaurio", "chocolate", "avion", "america"])); // ['elef', 'dino' 'chocolate', 'avio', 'amer']
-console.log(recortar(1, ["algoritmo", "bug", "compilador"])); // ['a', 'b', 'c']
+
+//console.log(recortar(4, ["elefante", "dinosaurio", "chocolate", "avion", "america"])); // ['elef', 'dino' 'chocolate', 'avio', 'amer']
+//console.log(recortar(1, ["algoritmo", "bug", "compilador"])); // ['a', 'b', 'c']
 
 
 // 4) Crear una función sonIguales(a, b) que tome como argumentos dos arrays a y b y devuelva true si ambos arrays tienen los mismos valores 
@@ -59,23 +72,22 @@ console.log(recortar(1, ["algoritmo", "bug", "compilador"])); // ['a', 'b', 'c']
 //arrayPredefinido = ["azul","verde","rojo","amarillo"];
 //arrayUsuario = ["azul","rojo","blanco","negro"];
 
-const sonIguales = (a, b) => {
-    if (a.length != b.length) {
+const sonIguales = (arrayA, arrayB) => {
+    if (arrayA.length != arrayB.length) {
         return false;
     }
-    else {
-        for (i = 0; i < a.length; i++) {
-            if (a[i] != b[i]) {
-                return false;
-            }
-        }
-        return true;
-    }
-}
 
-console.log(sonIguales([10, 25, 6, 33, 48, 105], [10, 25, 6, 33, 48, 105])); // true
-console.log(sonIguales([10, 25, 6, 33, 48, 105], [11, 25, 6, 33, 48, 105])); // false
-console.log(sonIguales([10, 25, 6, 33, 48, 105], [25, 10, 6, 33, 48, 105])); // false
+    for (i = 0; i < arrayA.length; i++) {
+        if (arrayA[i] != arrayB[i]) {
+            return false;
+        }
+    }
+    return true;
+
+}
+//console.log(sonIguales([10, 25, 6, 33, 48, 105], [10, 25, 6, 33, 48, 105])); // true
+//console.log(sonIguales([10, 25, 6, 33, 48, 105], [11, 25, 6, 33, 48, 105])); // false
+//console.log(sonIguales([10, 25, 6, 33, 48, 105], [25, 10, 6, 33, 48, 105])); // false
 
 
 /* 5) Crear una función obtenerResultado que tome como argumentos dos strings jugadoraA y jugadoraB con los nombres de cada jugadora 
@@ -92,29 +104,29 @@ const puntajesB = [4, 6, 2];
 */
 
 const obtenerResultado = (juagadoraA, jugadoraB, puntajesA, puntajesB) => {
+    let puntosA = 0;
+    let puntosB = 0;
 
-    if (puntajesA.length != puntajesB.length) {
-        return false;
+    for (i = 0; i < puntajesA.length; i++) {
+        if (puntajesA[i] > puntajesB[i]) {
+            puntosA++;
+        }
+        else {
+            puntosB++
+        }
+    }
+    if (puntosA > puntosB) {
+        return "Ganó: " + juagadoraA;
+    }
+    else if (puntosA < puntosB) {
+        return "Ganó: " + jugadoraB;
     }
     else {
-        for (i = 0; i < puntajesA.length; i++) {
-            if (puntajesA[i] > puntajesB[i]) {
-                return juagadoraA;
-            }
-            else if (puntajesA[i] < puntajesB[i]) {
-                return jugadoraB;
-            }
-            else if (puntajesA[i] = puntajesB[i]) {
-
-                return 'Empate';
-            }
-        }
-
+        return "Empate";
     }
-}
 
+}
 // Resultado final: Gana Jugadora B
-console.log(obtenerResultado("Ada", "Grace", [4, 4, 4], [1, 2, 3])); // Ada
-console.log(obtenerResultado("Ada", "Grace", [3, 5, 5, 7],
-    [4, 1, 2, 9])); // Empate
-console.log(obtenerResultado("Ada", "Grace", [5, 6, 3, 1, 8], [8, 2, 4, 2, 3])); // Grace
+//console.log(obtenerResultado("Ada", "Grace", [4, 4, 4], [1, 2, 3])); // Ada
+//console.log(obtenerResultado("Ada", "Grace", [3, 5, 5, 7],[4, 1, 2, 9])); // Empate
+//console.log(obtenerResultado("Ada", "Grace", [5, 6, 3, 1, 8], [8, 2, 4, 2, 3])); // Grace
