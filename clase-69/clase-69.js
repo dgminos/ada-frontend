@@ -12,7 +12,7 @@
 
 // Resultado final: Empate
 
-/*const jugarPiedraPapelTijeras = (jugadoraA, jugadoraB, jugadasA, jugadasB) => {
+const jugarPiedraPapelTijeras = (jugadoraA, jugadoraB, jugadasA, jugadasB) => {
     let puntosA = 0;
     let puntosB = 0;
 
@@ -21,8 +21,7 @@
     }
     for (i = 0; i < jugadasA.length; i++) {
         if (jugadasA[i] == jugadasB[i]) {
-            puntosA++
-            puntosB++;
+            continue;
         }
         const ganoJugador1 =
             (jugadasA[i] == "piedra" && jugadasB[i] == "tijera") ||
@@ -54,21 +53,21 @@
             puntosA++
     
         }*/
-/*
-console.log(puntosA, puntosB)
+
+        console.log(puntosA, puntosB)
+    }
+
+    if (puntosA > puntosB) {
+        return jugadoraA;
+    }
+    else if (puntosA < puntosB) {
+        return jugadoraB;
+    }
+    else {
+        return 'Empate';
+    }
 }
 
-if (puntosA > puntosB) {
-return jugadoraA;
-}
-else if (puntosA < puntosB) {
-return jugadoraB;
-}
-else {
-return 'Empate';
-}
-}
-/*
 //RESOLUCIÓN ALTERNATIVA:
 
 /*const comprobarGanador = (jugadaJugador1, jugadaJugador2) => {
@@ -342,7 +341,7 @@ const esSubconjunto = (subconjunto, conjunto) => {
 //con los temas hasta el momento a medida que se va a actualizando. Al finalizar mostrar un mensaje con el nombre de la playlist y la lista de 
 //canciones.
 
-const crearPlaylist = () => {
+/*const crearPlaylist = () => {
     let nombrePlaylist = prompt('Ingrese el nombre de la playlist')
     let cantidadCanciones = Number(prompt('Cuantas canciones desea agregar?'))
 
@@ -352,7 +351,7 @@ const crearPlaylist = () => {
     let cancionesRestantes = cantidadCanciones
 
     for (let i = 0; i < cantidadCanciones; i++) {
-        let nombreCancion = prompt(`Quedan ${cancionesRestantes} canciones restantes. 
+        let nombreCancion = prompt(`Quedan ${cancionesRestantes} canciones restantes.
     Ingrese el nombre de la canción`)
 
         mensajeAMostrar += nombreCancion + ' ';
@@ -361,5 +360,5 @@ const crearPlaylist = () => {
     }
 
     alert(mensajeAMostrar)
-}
+}*/
 
