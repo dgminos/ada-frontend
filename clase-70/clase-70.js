@@ -398,26 +398,30 @@ anioLanzamiento = banda.year;
 cantidadMiembros = banda.members.length;
 miembros = banda.members;
 cantidadDiscos = banda.albums.length;
-//cantidadTotalCanciones = banda.albums.songs
-//durationTotal = `${banda.albums.duration++}`
-//promedioDuracion = durationTotal / albums.length;
 
-for (const albums in banda) {
-    for (const songs of albums) {
-        let cantidadTotalCanciones = songs.length++;
-        return cantidadTotalCanciones;
-    }
+let albums = banda.albums;
+let duracionTotal = 0;
+let cantidadTotalCanciones = 0;
 
-}
 
+albums.forEach(element => {
+    cantidadTotalCanciones = cantidadTotalCanciones + element.songs.length;
+    duracionTotal = duracionTotal + element.duration;
+
+});
+
+let promedioDuracionAlbum = duracionTotal / banda.albums.length;
+const duracionPromedioCancion = duracionTotal / cantidadTotalCanciones;
 
 ///// RESULTADO
-console.log("Led Zeppelin se fundó en el año " + anioLanzamiento);
-console.log("Tiene " + cantidadMiembros + " miembros: " + miembros);
-console.log("Tiene en total " + cantidadDiscos + " discos");
-console.log("Tiene en total " + cantidadTotalCanciones + " canciones entre todos los discos.");
-//console.log("En promedio, cada canción dura " + promedioDuracion + " segundos");
-  // ESPERADO
+console.log("Led Zeppelin se fundó en el año " + anioLanzamiento + '.');
+console.log("Tiene " + cantidadMiembros + " miembros: " + miembros + '.');
+console.log("Tiene en total " + cantidadDiscos + " discos.");
+console.log("Tiene un total de " + cantidadTotalCanciones + " canciones entre todos los discos.");
+console.log("En promedio, cada album dura " + promedioDuracionAlbum + " segundos.");
+console.log("En promedio, cada canción dura " + duracionPromedioCancion + " segundos.");
+
+// ESPERADO
   // Led Zeppelin se fundó en el año 1968
   // Tiene 4 miembros: Jimmy Page, Robert Plant, John Paul Jones, John Bonham
   // Tiene en total 4 discos
