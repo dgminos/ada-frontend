@@ -413,6 +413,13 @@ albums.forEach(element => {
 let promedioDuracionAlbum = duracionTotal / banda.albums.length;
 const duracionPromedioCancion = duracionTotal / cantidadTotalCanciones;
 
+//SOLUCIÓN CON FOR OF
+//for (const songs of banda.albums) {
+//let cantidadTotalCanciones = songs.length++;
+//return cantidadTotalCanciones;
+//}
+
+
 ///// RESULTADO
 console.log("Led Zeppelin se fundó en el año " + anioLanzamiento + '.');
 console.log("Tiene " + cantidadMiembros + " miembros: " + miembros + '.');
