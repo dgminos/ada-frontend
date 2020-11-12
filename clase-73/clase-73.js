@@ -29,11 +29,26 @@ const personajes = getInhabitants();
 
 let elMasEnano = personajes[0];
 personajes.forEach((inhabitant) => {
+
     if (elMasEnano.height > inhabitant.height) {
         elMasEnano = inhabitant
     }
 });
-//console.log(elMasEnano);
+console.log(elMasEnano);
+
+let elMasEnano = personajes[0];
+personajes.forEach((inhabitant) => {
+    const { height: height1 } = elMasEnano;
+    const { height: height2 } = inhabitant;
+    if (height1 > height2) {
+        elMasEnano = inhabitant
+    }
+});
+console.log(elMasEnano);
+
+//const { id, name, thumbnail, age, weight, height, hair_color, professions, friends } = elMasEnano;
+//console.log(elMasEnano)
+
 // 15) Crear una funcion que devuelva los personajes por ID en base a un rango numerico.
 
 const personajePorId = (min, max) => {
@@ -138,7 +153,7 @@ const showFriends = () => {
     friends.unshift(fizwood);
     // console.table(friends)
 }
-//console.log(showFriends());
+//console.table(showFriends());
 
 // 20) Listar a todos los personajes que tengan como profesión "Woodcarver".
 
@@ -216,4 +231,4 @@ const habitanteConMayorVolumen = () => {
     return personajeConMasVolumen;
 }
 
-console.log(habitanteConMayorVolumen());
+//console.log(habitanteConMayorVolumen());
