@@ -96,12 +96,12 @@ const vendedoraDelMes = (mes, anio) => {
 
 const ventasMes = (mes, anio) => {
     let cantidadVentasDeUnMes = 0;
-    console.log("buscando ventas del mes " + mes + " y año " + anio)
+    //console.log("buscando ventas del mes " + mes + " y año " + anio)
     let ventasDelMes = local.ventas.filter(
         (venta) =>
             venta.fecha.getFullYear() === anio && venta.fecha.getMonth() === mes - 1
     );
-    console.log("ventas del mes " + mes + ": " + ventasDelMes)
+    //console.log("ventas del mes " + mes + ": " + ventasDelMes)
     importeVentasM = 0;
     ventasDelMes.forEach((vnt) => {
 
@@ -259,7 +259,7 @@ const sucursalDelMes = (mes, anio) => {
     ventasDelMes = []
     for (let venta of local.ventas) {
         if (venta.fecha.getMonth() === mes - 1 && venta.fecha.getFullYear() === anio) {
-            console.log("en la fecha " + venta.fecha + " se vendieron " + venta.componentes)
+            //console.log("en la fecha " + venta.fecha + " se vendieron " + venta.componentes)
             ventasDelMes.push(venta);
         }
     }
@@ -296,7 +296,7 @@ const renderPorMes = (anio) => {
         console.log(`Ventas de ${key}: $`, ventasMes(value + 1, anio))
     });
 }
-//console.log(renderPorMes(2019));
+console.log(renderPorMes(2019));
 // Ventas por mes:
 //   Total de enero 2019: 1250
 //   Total de febrero 2019: 4210
@@ -306,13 +306,13 @@ const renderPorMes = (anio) => {
 
 const renderPorSucursal = () => {
 
-    //console.log('Ventas por sucursal.')
+    console.log('Ventas por sucursal.')
     local.sucursales.forEach(sucursal => {
         console.log('Total de ventas sucursal ' + sucursal + ": $" + ventasSucursal(sucursal))
     });
 }
 
-//console.log(renderPorSucursal());
+console.log(renderPorSucursal());
 // Ventas por sucursal:
 //   Total de Centro: 4195
 //   Total de Caballito: 1265
@@ -333,13 +333,13 @@ const vendedoraQueMasIngresosGenero = () => {
 
     return mejorVendedora;
 }
-//console.log(vendedoraQueMasIngresosGenero());
+console.log('Vendedora que más ingresos generó: ' + vendedoraQueMasIngresosGenero());
 
 const render = () => {
     console.log('Reporte.')
     console.log('Ventas por mes.')
     console.log(renderPorMes(2019));
-    console.log('Ventas por sucursal.')
+    //console.log('Ventas por sucursal.')
     console.log(renderPorSucursal());
     console.log('Producto estrella: ' + componenteMasVendido());
     console.log('Vendedora que más ingresos generó: ' + vendedoraQueMasIngresosGenero());
@@ -357,6 +357,9 @@ render();
 // Vendedora que más ingresos generó: Grace*/
 
 
+// ************************************************************************************************************************************
+//RENDER DINÁMICO.
+
 const btn = document.getElementById('btn');
 
 const mesesRender = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', '0ctubre', 'Noviembre', 'Diciembre'];
@@ -366,10 +369,10 @@ const listaSucursales = document.getElementById('listaSucursales');
 
 const renderDinamico = () => {
 
-    const anio = prompt('Ingrese el año: ');
+    const anio = document.getElementById("inputAnio")
     const h5Titulo = document.createElement('h5');
-    h5Titulo.className = 'text-center';
-    h5Titulo.appendChild(document.createTextNode('Ventas del mes.'));
+    h5Titulo.className = 'text-center mt-5';
+    h5Titulo.appendChild(document.createTextNode('Ventas por mes:'));
     document.body.appendChild(h5Titulo);
 
     const fragment = document.createDocumentFragment();
@@ -377,8 +380,8 @@ const renderDinamico = () => {
     for (let [i, mes] of mesesRender.entries()) {
         const itemList = document.createElement('li');
         itemList.className = 'list-group-item d-flex justify-content-between align-items-center';
-        console.log('ventas del mes ' + mes + ': ' + ventasMes(i + 1, anio))
-        let texto = `Ventas de ${mes}: $` + ventasMes(i + 1, anio)
+        console.log('ventas del mes ' + mes + ': ' + ventasMes(i + 1, Number(anio.value)))
+        let texto = `Ventas de ${mes}: $` + ventasMes(i + 1, Number(anio.value))
         itemList.textContent = texto;
         fragment.appendChild(itemList);
     }
@@ -386,8 +389,8 @@ const renderDinamico = () => {
     listaMeses.appendChild(fragment);
 
     const h5 = document.createElement('h5');
-    h5.className = 'text-center';
-    h5.appendChild(document.createTextNode('Ventas por sucursal.'));
+    h5.className = 'text-center mt-5';
+    h5.appendChild(document.createTextNode('Ventas por sucursal:'));
     for (sucursal of local.sucursales) {
         const itemLista = document.createElement('li');
         itemLista.className = 'list-group-item d-flex justify-content-between align-items-center';
@@ -396,9 +399,30 @@ const renderDinamico = () => {
         listaSucursales.appendChild(itemLista);
     }
 
+    const h5Componente = document.createElement('h5');
+    h5Componente.appendChild(document.createTextNode('Producto estrella: '));
+    h5Componente.className = 'text-center mt-5';
+
+    const productoEstrella = document.createElement('h6');
+    const txt = componenteMasVendido();
+    productoEstrella.textContent = txt;
+    h5Componente.appendChild(productoEstrella);
+
+    const h5Vendedora = document.createElement('h5');
+    h5Vendedora.appendChild(document.createTextNode('Vendedora que más ingresos generó: '));
+    h5Vendedora.className = 'text-center mt-5';
+
+    const mejorVendedora = document.createElement('h6');
+    const textoVendedora = vendedoraQueMasIngresosGenero();
+    mejorVendedora.textContent = textoVendedora;
+    h5Vendedora.appendChild(mejorVendedora);
+
     document.body.appendChild(listaMeses);
     document.body.appendChild(h5);
     document.body.appendChild(listaSucursales);
+    document.body.appendChild(h5Componente);
+    document.body.appendChild(h5Vendedora);
+
 
 }
 
