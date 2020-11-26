@@ -93,13 +93,13 @@ console.log(resultado);
 const multiploDe10 = (x) => x % 10 === 0; //callback
 
 const filter = (array, callback) => {
-    let numerosMultiplosDe10 = [];
+    let resultado = [];
     for (element of array) {
         if (callback(element) === true) {
-            numerosMultiplosDe10.push(element);
+            resultado.push(element);
         }
     }
-    return numerosMultiplosDe10;
+    return resultado;
 }
 
 let arrayFinal = filter(numeros, multiploDe10)
@@ -123,7 +123,7 @@ const esPositivo = (x) => x >= 0; //callback
 
 const every = (array, callback) => {
     for (element of array) {
-        return array.every(callback) //.every devuelve true si la función de devolución de callback devuelve un valor de truthy para cada elemento de la variable, de lo contrario, false.
+        return array.every(callback) //.every devuelve true si la función de devolución de callback devuelve un valor de truthy para cada elemento del array, de lo contrario, false. (TRUTHY:todos los valores son verdaderos a menos que se definan como falso (es decir, excepto false, 0, "", null, undefined, y NaN)
     }
 }
 
