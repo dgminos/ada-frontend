@@ -68,7 +68,7 @@ const duplicar = (x) => x * 2; //callback
 
 const map = (array, callback) => {
     let numerosDuplicados = [];
-    for (element of array) {
+    for (let element of array) {
         numerosDuplicados.push(callback(element));
     }
     return numerosDuplicados;
@@ -94,7 +94,7 @@ const multiploDe10 = (x) => x % 10 === 0; //callback
 
 const filter = (array, callback) => {
     let resultado = [];
-    for (element of array) {
+    for (let element of array) {
         if (callback(element) === true) {
             resultado.push(element);
         }
@@ -117,13 +117,13 @@ console.log(arrayFinal);*/
 // const multiploDe10 = (x) => x % 10 === 0
 // const esPositivo = (x) => x >= 0
 
-/*const numeros = [10, 2, 3, 40, 33, 50];
+const numeros = [10, 2, 3, 40, 33, 50];
 const multiploDe10 = (x) => x % 10 === 0; //callback
 const esPositivo = (x) => x >= 0; //callback
 
 const every = (array, callback) => {
-    for (element of array) {
-        return array.every(callback) //.every devuelve true si la función de devolución de callback devuelve un valor de truthy para cada elemento del array, de lo contrario, false. (TRUTHY:todos los valores son verdaderos a menos que se definan como falso (es decir, excepto false, 0, "", null, undefined, y NaN)
+    for (let element of array) {
+        return array.every(callback) //.every devuelve true si la función de devolución de callback devuelve un valor de truthy para cada elemento del array, de lo contrario, false. (TRUTHY:todos los valores son verdaderos a menos que se definan como falso. Es decir, excepto false, 0, "", null, undefined, y NaN)
     }
 }
 
@@ -145,7 +145,7 @@ const multiploDe10 = (x) => x % 10 === 0 //callback
 const esPositivo = (x) => x >= 0 //callback
 
 const some = (array, callback) => {
-    for (element of array) {
+    for (let element of array) {
         return array.some(callback)
     }
 }
