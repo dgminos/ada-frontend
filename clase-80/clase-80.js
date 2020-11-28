@@ -9,7 +9,7 @@
 const multiploDe10 = (x) => x % 10 === 0;
 
 const find = (array, callback) => {
-    for (element of array) {  //consultar si va let element o solo element!!!!
+    for (element of array) {
         return array.find(callback) //.find devuelve el valor del primer elemento del array que cumple la función de prueba proporcionada; de lo contrario, devuelve undefined.
     }
 }
@@ -22,16 +22,19 @@ console.log(find(numeros, multiploDe10)); // 40*/
 // - devuelva el índice del elemento pasado como argumento del primer callback que devuelva true
 // - si ningún callback devuelve true, devuelva undefined // consultar si tiene que dar -1 cuando es falso ya que .findIndex retorna el primer índice en el que se puede encontrar un elemento dado en el array, ó retorna -1 si el elemento no esta presente. !!!
 
-/*const numeros = [8, 2, 3, 40, 33, 50];
+const numeros = [8, 2, 3, 4, 33, 5];
 const multiploDe10 = (x) => x % 10 === 0;
 
 const findIndex = (array, callback) => {
     for (element of array) {
-        return array.findIndex(callback)
+        return array.findIndex(callback) ?? undefined
+        //return array.findIndex(callback) || undefined
+        //return array.findIndex(callback) === -1 ? true : undefined;
+
     }
 }
 
-console.log(findIndex(numeros, multiploDe10)); // 3*/
+console.log(findIndex(numeros, multiploDe10)); // 3 
 
 
 // 9) Crear una función dropWhile que acepte un array y un callback y que:
@@ -67,7 +70,7 @@ console.log(dropWhile(numeros, multiploDe10)); // [8, 2, 3, 20]*/
 const multiploDe10 = (x) => x % 10 === 0
 
 const takeWhile = (array, callback) => {
-    //let takeWhileArray = new Array(); // consultar si es necesario declarar esta variable ya que funciona igual!!!
+
     for (let element of array) {
         if (!(callback(element))) {
             let takeWhileArray = array.slice(0, array.indexOf(element)) // devuelvo un array con los elementos hasta el primer elemento que el callback devolvió false. Así funciona el .slice: ('0':desde el índice 0 del array, 'array.indexOf(element)':hasta el indeof del primer elemento que da false)
