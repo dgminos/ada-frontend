@@ -431,16 +431,16 @@ mostrarImagenGrandeMouse();*/
 //4 películas por género. Agregar al documento un botón por cada género, y un botón que diga Todas. Cuando se clickea el botón de un género, se tienen que mostrar 
 //sólo las películas correspondientes a ese género. Cuando se clickea el botón Todas se tienen que mostrar todas las películas.
 
-const mostrarPeliculas = () => {
+/*const mostrarPeliculas = () => {
 
     const contenedor = document.querySelectorAll('.contenedor');// traigo todas las imagenes que están dentro de cada contenedor
     const btnTerror = document.getElementById('terror');
     const btnComedia = document.getElementById('comedia');
     const btnAccion = document.getElementById('accion');
     const btnTodas = document.getElementById('todas');
-    const imgTerror = document.getElementById('imagenesTerror');
-    const imgComedia = document.getElementById('imagenesComedia');
-    const imgAccion = document.getElementById('imagenesAccion');
+    const imgTerror = document.getElementById('imagenesTerror'); //traigo todas las imagenes de terror en el contenedor con ese id
+    const imgComedia = document.getElementById('imagenesComedia'); //traigo todas las imagenes de comedia en el contenedor con ese id
+    const imgAccion = document.getElementById('imagenesAccion'); //traigo todas las imagenes de accion en el contenedor con ese id
 
     for (let i = 0; i < contenedor.length; i++) {
         contenedor[i].style.display = 'none';
@@ -475,7 +475,7 @@ const mostrarPeliculas = () => {
     btnAccion.addEventListener('click', mostrarAccion);
     btnTodas.addEventListener('click', mostrarTodas);
 }
-mostrarPeliculas();
+mostrarPeliculas();*/
 
 
 // 21) En un documento html crear botones con números del 0 al 9, un botón para reiniciar, un botón para borrar, y un elemento de texto.
@@ -485,20 +485,28 @@ mostrarPeliculas();
 // - El botón de reiniciar debe borrar todos los dígitos del elemento de texto.
 // - El botón de borrar debe borrar el último dígito del elemento de texto. Por ejemplo, si el pin ingresado es 2544 y se presiona la tecla borrar, debe quedar en 254.
 
-const agregarNumero = () => {
-
+/*const mostrarNumero = () => {
     const btnNumeros = document.querySelectorAll('.numeros');
+    //console.log(btnNumeros);
     const btnReiniciar = document.getElementById('reiniciar');
     const btnBorrar = document.getElementById('borrar');
     const texto = document.getElementById('texto');
 
-
-
-    btnNumeros.addEventListener('click', () => {
-        texto.innerHTML += btnNumeros.value;
-
+    for (let i = 0; i <= 9; i++) {
+        btnNumeros[i].addEventListener('click', () => {
+            texto.innerHTML += btnNumeros[i].value; //guardar esos numeros, no solo mostrarlos
+        })
+    }
+    btnReiniciar.addEventListener('click', () => {
+        texto.innerHTML = '';
     })
+    btnBorrar.addEventListener('click', () => {
+        let nuevoValor = texto.innerHTML.slice(0, texto.innerHTML.length - 1) // elimino el último carácter del string de números
+        texto.innerHTML = nuevoValor;
+    })
+
 }
+mostrarNumero(); // falta ponerle el máximo de 6 caracteres*/
 
 
 // 22) Crear dos contenedores, uno para imágenes y otro para favoritos. En el contenedor de imágenes, agregar al menos 10 imágenes (cualesquiera). Al clickear una
@@ -506,11 +514,22 @@ const agregarNumero = () => {
 //se debe eliminar la imagen seleccionada de dicho contenedor.
 
 
-// 24) Hacer un programa que al apretar la tecla espacio, cambie el color de fondo del body por un color aleatorio. Para eso, crear una función 
+// 23) Hacer un programa que al apretar la tecla espacio, cambie el color de fondo del body por un color aleatorio. Para eso, crear una función 
 //obtenerColorAleatorio() que devuelva un string con el formato de ejemplo rgb(0,0,0) donde los valores de r, g y b se generan aleatoriamente (con números del 1 al 255).
 
+/*const obtenerColorAleatorio = () => {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    document.body.addEventListener('keypress', (e) => {
+        if (e.keyCode == 32 || e.code == "Space") {
+            document.body.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")"
+        }
+    })
+};
+obtenerColorAleatorio();*/
 
-// Crear un programa que genere un número aleatorio entre 0 y 9. Cuando se presiona un número en el teclado, el programa debe mostrar en el documento html un mensaje:
+// 24) Crear un programa que genere un número aleatorio entre 0 y 9. Cuando se presiona un número en el teclado, el programa debe mostrar en el documento html un mensaje:
 
 // - si el número seleccionado es más grande que el número aleatorio generado, debe mostrar El número es más chico
 // - si el número seleccionado es más chico que el número aleatorio generado, debe mostrar El número es más grande
@@ -530,3 +549,8 @@ const agregarNumero = () => {
 // El documento también debe tener un botón que diga Reiniciar, que genere un nuevo número y actualice el mensaje para indicarlo (por ejemplo ¡Nueva partida! 
 //Presione un número.)
 
+function aleatorio(n) {
+    let resultado = Math.floor(Math.random() * n);
+    return resultado;
+}
+aleatorio(10);
