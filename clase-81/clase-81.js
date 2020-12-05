@@ -553,10 +553,10 @@ const texto = document.getElementById('texto');
 const btnReiniciar = document.getElementById('reiniciar');
 let numAleatorio = aleatorio(10);
 
-document.addEventListener('keypress', () => {
-    //let numeroIngresado = '';
+document.addEventListener('keypress', (event) => {
+
     let numeroIngresado = event.key;
-    console.log(' keycode del numero ingresado: ' + numeroIngresado)
+    //console.log(' keycode del numero ingresado: ' + numeroIngresado)
     //if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105)) {
 
     if (numeroIngresado < numAleatorio) {
