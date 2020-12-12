@@ -4,7 +4,9 @@ let valorUnidad = document.getElementById('valor-unidad');
 const btn = document.getElementById('btn');
 const texto = document.getElementById('texto');
 
+input.value = 1;
 const convertir = () => {
+
     let valor = input.value;
     let unidadIngresada = valorIngresado.value;
     let unidadAConvertir = valorUnidad.value;
@@ -25,7 +27,7 @@ btn.addEventListener('click', () => {
 })
 
 
-function dimePropiedades() {
+/*function obtenerPropiedades() {
     var texto
     texto = "El numero de opciones del select: " + valorIngresado.length
     var indice = valorIngresado.selectedIndex
@@ -35,4 +37,4 @@ function dimePropiedades() {
     var textoEscogido = valorIngresado.options[indice].text
     texto += "nTexto de la opcion escogida: " + textoEscogido
     console.log((texto))
-}
+}*/

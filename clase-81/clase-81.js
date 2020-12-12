@@ -485,33 +485,49 @@ mostrarPeliculas();*/
 // - El botón de reiniciar debe borrar todos los dígitos del elemento de texto.
 // - El botón de borrar debe borrar el último dígito del elemento de texto. Por ejemplo, si el pin ingresado es 2544 y se presiona la tecla borrar, debe quedar en 254.
 
-/*const mostrarNumero = () => {
-    const btnNumeros = document.querySelectorAll('.numeros');
-    //console.log(btnNumeros);
-    const btnReiniciar = document.getElementById('reiniciar');
-    const btnBorrar = document.getElementById('borrar');
-    const texto = document.getElementById('texto');
+// const mostrarNumero = () => {
+//     const btnNumeros = document.querySelectorAll('.numeros');
+//     //console.log(btnNumeros);
+//     const btnReiniciar = document.getElementById('reiniciar');
+//     const btnBorrar = document.getElementById('borrar');
+//     const texto = document.getElementById('texto');
 
-    for (let i = 0; i <= 9; i++) {
-        btnNumeros[i].addEventListener('click', () => {
-            texto.innerHTML += btnNumeros[i].value; //guardar esos numeros, no solo mostrarlos
-        })
-    }
-    btnReiniciar.addEventListener('click', () => {
-        texto.innerHTML = '';
-    })
-    btnBorrar.addEventListener('click', () => {
-        let nuevoValor = texto.innerHTML.slice(0, texto.innerHTML.length - 1) // elimino el último caracter del string de números
-        texto.innerHTML = nuevoValor;
-    })
+//     for (let i = 0; i <= 9; i++) {
+//         btnNumeros[i].addEventListener('click', () => {
+//             texto.innerHTML += btnNumeros[i].value; //guardar esos numeros, no solo mostrarlos
+//         })
+//     }
+//     btnReiniciar.addEventListener('click', () => {
+//         texto.innerHTML = '';
+//     })
+//     btnBorrar.addEventListener('click', () => {
+//         let nuevoValor = texto.innerHTML.slice(0, texto.innerHTML.length - 1) // elimino el último caracter del string de números
+//         texto.innerHTML = nuevoValor;
+//     })
 
-}
-mostrarNumero(); // falta ponerle el máximo de 6 caracteres*/
+// }
+// mostrarNumero(); // falta ponerle el máximo de 6 caracteres
 
 
 // 22) Crear dos contenedores, uno para imágenes y otro para favoritos. En el contenedor de imágenes, agregar al menos 10 imágenes (cualesquiera). Al clickear una
 //imagen en el contenedor de imágenes, se debe agregar la misma imagen en el contenedor de favoritos. Al clickear una imagen en el contenedor de favoritos, 
 //se debe eliminar la imagen seleccionada de dicho contenedor.
+
+const containerImagenes = document.getElementById('imagenes');
+const contenedorFavoritos = document.getElementById('favoritos');
+let img = document.querySelectorAll('.img');
+
+const agregarImagen = () => {
+    img.forEach(element => {
+        contenedorFavoritos.appendChild(element)
+        contenedorFavoritos.innerHTML += element;
+        //element.style.display = 'inline-block';
+    });
+}
+
+img.addEventListener('click', agregarImagen)
+
+
 
 
 // 23) Hacer un programa que al apretar la tecla espacio, cambie el color de fondo del body por un color aleatorio. Para eso, crear una función 
@@ -549,36 +565,36 @@ obtenerColorAleatorio();*/
 // El documento también debe tener un botón que diga Reiniciar, que genere un nuevo número y actualice el mensaje para indicarlo (por ejemplo ¡Nueva partida! 
 //Presione un número.)
 
-const texto = document.getElementById('texto');
-const btnReiniciar = document.getElementById('reiniciar');
-let numAleatorio = aleatorio(10);
+// const texto = document.getElementById('texto');
+// const btnReiniciar = document.getElementById('reiniciar');
+// let numAleatorio = aleatorio(10);
 
-document.addEventListener('keypress', (event) => {
+// document.addEventListener('keypress', (event) => {
 
-    let numeroIngresado = event.key;
-    //console.log(' keycode del numero ingresado: ' + numeroIngresado)
-    //if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105)) {
+//     let numeroIngresado = event.key;
+//     //console.log(' keycode del numero ingresado: ' + numeroIngresado)
+//     //if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105)) {
 
-    if (numeroIngresado < numAleatorio) {
-        texto.innerHTML = `El número es más grande. Número ingresado: ${numeroIngresado}`
-    }
-    if (numeroIngresado > numAleatorio) {
-        texto.innerHTML = `El número es más chico. Número ingresado: ${numeroIngresado}`
-    }
-    if (numeroIngresado == numAleatorio) {
-        texto.innerHTML = `Adivinaste! Número ingresado: ${numeroIngresado}`
-    }
-    //}
+//     if (numeroIngresado < numAleatorio) {
+//         texto.innerHTML = `El número es más grande. Número ingresado: ${numeroIngresado}`
+//     }
+//     if (numeroIngresado > numAleatorio) {
+//         texto.innerHTML = `El número es más chico. Número ingresado: ${numeroIngresado}`
+//     }
+//     if (numeroIngresado == numAleatorio) {
+//         texto.innerHTML = `Adivinaste! Número ingresado: ${numeroIngresado}`
+//     }
+//     //}
 
-})
+// })
 
-btnReiniciar.addEventListener('click', () => {
-    numAleatorio = aleatorio(10);
-    texto.innerHTML = '¡Nueva partida! Presiona un número.';
-});
+// btnReiniciar.addEventListener('click', () => {
+//     numAleatorio = aleatorio(10);
+//     texto.innerHTML = '¡Nueva partida! Presiona un número.';
+// });
 
-function aleatorio(n) {
-    let resultado = Math.floor(Math.random() * n);
-    console.log("numero generado: " + parseInt(resultado))
-    return resultado;
-}
+// function aleatorio(n) {
+//     let resultado = Math.floor(Math.random() * n);
+//     console.log("numero generado: " + parseInt(resultado))
+//     return resultado;
+// }

@@ -119,6 +119,7 @@ btnSiguiente.addEventListener('click', () => {
 })
 
 const numeroPagina = document.getElementById('numero-de-pagina');
+numeroPagina.innerHTML = page;
 
 const btnAnterior = document.getElementById('btn-anterior');
 btnAnterior.addEventListener('click', () => {
