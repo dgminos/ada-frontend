@@ -431,7 +431,7 @@ mostrarImagenGrandeMouse();*/
 //4 películas por género. Agregar al documento un botón por cada género, y un botón que diga Todas. Cuando se clickea el botón de un género, se tienen que mostrar 
 //sólo las películas correspondientes a ese género. Cuando se clickea el botón Todas se tienen que mostrar todas las películas.
 
-/*const mostrarPeliculas = () => {
+const mostrarPeliculas = () => {
 
     const contenedor = document.querySelectorAll('.contenedor');// traigo todas las imagenes que están dentro de cada contenedor
     const btnTerror = document.getElementById('terror');
@@ -447,22 +447,23 @@ mostrarImagenGrandeMouse();*/
     }
     const mostrarTerror = () => {
         for (let i = 0; i < contenedor.length; i++) {
-            imgTerror.style.display = 'block';
             contenedor[i].style.display = 'none';
         }
+        imgTerror.style.display = 'block';
     }
     const mostrarComedia = () => {
         for (let i = 0; i < contenedor.length; i++) {
-            imgComedia.style.display = 'block';
             contenedor[i].style.display = 'none';
         }
+        imgComedia.style.display = 'block';
     }
     const mostrarAccion = () => {
         console.log('flag');
-        imgAccion.style.display = 'block';
+        console.log(imgAccion)
         for (let i = 0; i < contenedor.length; i++) {
             contenedor[i].style.display = 'none';
         }
+        imgAccion.style.display = 'block';
     }
     const mostrarTodas = () => {
         for (let i = 0; i < contenedor.length; i++) {
@@ -475,7 +476,7 @@ mostrarImagenGrandeMouse();*/
     btnAccion.addEventListener('click', mostrarAccion);
     btnTodas.addEventListener('click', mostrarTodas);
 }
-mostrarPeliculas();*/
+mostrarPeliculas();
 
 
 // 21) En un documento html crear botones con números del 0 al 9, un botón para reiniciar, un botón para borrar, y un elemento de texto.
@@ -513,19 +514,19 @@ mostrarPeliculas();*/
 //imagen en el contenedor de imágenes, se debe agregar la misma imagen en el contenedor de favoritos. Al clickear una imagen en el contenedor de favoritos, 
 //se debe eliminar la imagen seleccionada de dicho contenedor.
 
-const containerImagenes = document.getElementById('imagenes');
-const contenedorFavoritos = document.getElementById('favoritos');
-let img = document.querySelectorAll('.img');
+// const containerImagenes = document.getElementById('imagenes');
+// const contenedorFavoritos = document.getElementById('favoritos');
+// let img = document.querySelectorAll('.img');
 
-const agregarImagen = () => {
-    img.forEach(element => {
-        contenedorFavoritos.appendChild(element)
-        contenedorFavoritos.innerHTML += element;
-        //element.style.display = 'inline-block';
-    });
-}
+// const agregarImagen = () => {
+//     img.forEach(element => {
+//         contenedorFavoritos.appendChild(element)
+//         contenedorFavoritos.innerHTML += element;
+//         //element.style.display = 'inline-block';
+//     });
+// }
 
-img.addEventListener('click', agregarImagen)
+// img.addEventListener('click', agregarImagen)
 
 
 

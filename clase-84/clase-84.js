@@ -2,7 +2,7 @@
 
 const base = "https://api.themoviedb.org/3";
 const baseImg = "https://image.tmdb.org/t/p/w500";
-const apiKey = "0bce2b3619ac231ad6ce364b6d8015ab";
+const apiKey = "5575b1af74ff0d5aa590505f78ada3d4";
 
 
 // Crear una función renderImage que renderice una imagen en pantalla.
