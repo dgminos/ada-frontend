@@ -8,19 +8,25 @@ const btn = document.getElementById('btn');
 const urlBase = 'https://api.thecatapi.com/v1/images/search';
 //const apiKey = '9c2da6c3-dd40-4c80-a6d8-dcc3eb2bad3e';
 
+const mostrarImagen = () => {
+    let img = document.createElement("img");
+    img.className = "img";
+    img.setAttribute("src", urlBase);
+    document.body.appendChild(img);
+    document.body.innerHTML = img;
+}
 
-const mostrarGatiteRandom = () => {
+btn.addEventListener('click', () => {
     fetch(`${urlBase}`)
         .then(response => {
+            console.log(response)
             return response.json();
         })
         .then(data => {
-            console.log(data)
-
+            mostrarImagen(data)
         })
         .catch(error => {
             console.log(error);
         })
-}
-btn.addEventListener('click', mostrarGatiteRandom);
 
+})

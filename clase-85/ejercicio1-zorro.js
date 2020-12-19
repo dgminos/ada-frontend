@@ -11,6 +11,13 @@ function idAleatoria(min, max) {
 let endpoint = urlBase + idAleatoria(1, 122);
 console.log('vamos a obtener el recurso ' + endpoint);
 
+const mostrarImagen = () => {
+    let img = document.createElement("img");
+    img.className = "img";
+    img.setAttribute("src", endpoint);
+    document.body.appendChild(img);
+    document.body.innerHTML = img;
+}
 
 btn.addEventListener('click', () => {
 
@@ -31,11 +38,6 @@ btn.addEventListener('click', () => {
             console.log(error);
 
         });
-    let img = document.createElement("img");
-    img.className = "img";
-    img.setAttribute("src", endpoint);
-    document.body.appendChild(img);
-    document.body.innerHTML = img;
 })
 
 
